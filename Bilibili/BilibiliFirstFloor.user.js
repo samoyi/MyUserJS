@@ -17,7 +17,7 @@ window.addEventListener("load", comment, false);
 function comment()
 {
 	let timer = setInterval(function()
-	{	console.log(2333);
+	{	
 		window.scrollTo(0, document.body.scrollHeight); // 刚开始的时候不能滚到最下面，所以一直滚
 		let oCommentArea = document.querySelector(".comm_list");
 		if( oCommentArea ) // 如果评论框已加载
