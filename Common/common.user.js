@@ -12,7 +12,7 @@ const WINDOW_HEIGHT = window.innerHeight;
 // 回到顶部按钮
 (function()
 {	
-	let nTooLong = WINDOW_HEIGHT * 3, // 1914
+	let nTooLong = WINDOW_HEIGHT * 3,
 		oBody = document.body;
 	
 	// 每隔一秒检查一下页面高度，检查是否因异步加载页面变得过长
