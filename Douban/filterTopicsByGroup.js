@@ -1,19 +1,13 @@
 // ==UserScript==
-// @include https://www.douban.com/group/
-// @include https://www.douban.com/group/?start=*
+// @name         filterTopicsByGroup.user
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  在“我的小组话题”页面只显示指定小组的话题列表；如果当前页没有指定小组的话题，则直接跳转到下一页；方向键右键可以跳转到下一页。
+// @author       https://github.com/samoyi/MyUserScript
+// @match        https://www.douban.com/group/
+// @match        https://www.douban.com/group/?start=*
+// @grant        none
 // ==/UserScript==
-
-
-"use strict";
-
-/*
- * 在“我的小组话题”页面只显示指定小组的话题列表
- * 如果当前页没有指定小组的话题，则直接跳转到下一页
- * 方向键右键可以跳转到下一页
-*/
-
-
-
 
 {	
 	let aBisibleGroupUrl = [ // 只显示这两个小组的话题

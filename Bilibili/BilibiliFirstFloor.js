@@ -1,15 +1,12 @@
 // ==UserScript==
-// @include http://www.bilibili.com/video/av*
+// @name         BilibiliFirstFloor
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  哔哩哔哩视频页面自动抢评论一楼；打开视频页面后，如果没有评论则评论 sFirstComment 的内容；如果已经有评论，则将页面滚动到开视频的位置。
+// @author       https://github.com/samoyi/MyUserScript
+// @match        http://www.bilibili.com/video/av*
+// @grant        none
 // ==/UserScript==
-
-"use strict";
-
-/*
- * 哔哩哔哩视频页面自动抢评论一楼
- * 打开视频页面后，如果没有评论则评论 sFirstComment 的内容
- * 如果已经有评论，则将页面滚动到开视频的位置
-*/
-
 
 let sFirstComment = "第一不死于话多";
 
