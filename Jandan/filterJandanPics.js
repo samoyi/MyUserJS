@@ -14,6 +14,7 @@
  * 1. match是否能匹配第一页
  * 2. 加入当前页没有自动翻页功能
  * 3. 加入快捷键翻页功能
+ * 4. XX数为0的情况
  */
 document.addEventListener("DOMContentLoaded",function()
 {
