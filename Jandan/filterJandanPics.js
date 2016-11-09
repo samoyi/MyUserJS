@@ -9,17 +9,19 @@
 // @grant        none
 // ==/UserScript==
 
-/* 
- * TODO
- * 1. match是否能匹配第一页
- * 2. 加入当前页没有自动翻页功能
- * 3. 加入快捷键翻页功能
- * 4. XX数为0的情况
- */
-document.addEventListener("DOMContentLoaded",function()
+ 
 {
+	 
 	const GOOD_RATE = 10; // OO/XX
-	
+
+	function nextPage()
+	{
+		let oClickEvent = document.createEvent("MouseEvent");
+		oClickEvent.initMouseEvent("click", true, true, document.defaultView, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+		document.querySelector(".previous-comment-page").dispatchEvent(oClickEvent);
+	}
+		
+
 	let oPicOl = document.querySelector(".commentlist"),
 		aLi = oPicOl.querySelectorAll("li"), // 如果插入了广告，则包含广告的li
 		nLiAmount = aLi.length,
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded",function()
 		aXXBtn = oPicOl.querySelectorAll(".acva"),
 		aOOAmount = [], // 所有的OO数
 		aXXAmount = [];
-	
+
 	for(let i=0; i<nLiAmount; i++) // 筛选真正的图片li
 	{
 		if( aLi[i].id.indexOf("comment-") !== -1 )
@@ -38,19 +40,39 @@ document.addEventListener("DOMContentLoaded",function()
 		}
 		
 	}	
-	
+
+	let sThisXX = "";
 	nPicAmount = aPicLi.length;
 	for(let i=0; i<nPicAmount; i++) // 获取所有的OO数和XX数
 	{
 		aOOAmount.push(aOOBtn[i].nextElementSibling.textContent);
-		aXXAmount.push(aXXBtn[i].nextElementSibling.textContent);
+		sThisXX = aXXBtn[i].nextElementSibling.textContent;
+		sThisXX =  "0"===sThisXX ? 1 : sThisXX; // 如果XX数是0，则让它等于1
+		aXXAmount.push(sThisXX);
 	}
 
+	let nGoodAmount = nPicAmount; // 开始时默认所有的图片都是好评率合格的图片
 	for(let i=0; i<nPicAmount; i++)
 	{
 		if( aOOAmount[i]/aXXAmount[i] < GOOD_RATE )
 		{
 			aPicLi[i].style.display = "none";
+			aPicLi[i].querySelector("img").src = ""; // 停止下载不好的图片
+			nGoodAmount--;
 		}
 	}
-});
+	if( nGoodAmount ) // 如果有好图添加右键翻页功能
+	{
+		document.addEventListener("keyup", function(ev)
+		{
+			if( ev.keyCode === 39 )
+			{
+				nextPage();
+			}
+		});
+	}
+	else // 如果没好图直接翻页
+	{
+		nextPage();
+	}
+} 
