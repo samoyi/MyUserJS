@@ -2,7 +2,7 @@
 // @name         filterJandanPics
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  根据好评率来过滤显示煎蛋无聊图和妹子图
+// @description  根据好评率来过滤显示煎蛋无聊图和妹子图。不好的图隐藏并停止下载；隐藏广告。
 // @author       https://github.com/samoyi/MyUserScript
 // @match        http://jandan.net/ooxx*
 // @match        http://jandan.net/pic*
@@ -34,11 +34,14 @@
 
 	for(let i=0; i<nLiAmount; i++) // 筛选真正的图片li
 	{
-		if( aLi[i].id.indexOf("comment-") !== -1 )
+		if( aLi[i].id.indexOf("comment-") === -1 )
+		{
+			aLi[i].style.display = "none"; // 隐藏广告
+		}
+		else
 		{
 			aPicLi.push(aLi[i]);
 		}
-		
 	}	
 
 	let sThisXX = "";
