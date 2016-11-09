@@ -2,7 +2,7 @@
 // @name         filterJandanPics
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  根据好评率来过滤显示煎蛋无聊图和妹子图。不好的图隐藏并停止下载；隐藏广告。
+// @description  根据好评率来过滤显示煎蛋无聊图和妹子图。不好的图隐藏并停止下载；隐藏广告。右键翻页。
 // @author       https://github.com/samoyi/MyUserScript
 // @match        http://jandan.net/ooxx*
 // @match        http://jandan.net/pic*
