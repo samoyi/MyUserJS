@@ -1,10 +1,11 @@
 // ==UserScript==
-// @name         forEveryPage
+// @name         WeixinWikiBackToTop
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  common set for every page
+// @description  微信公众平台开发文档没有回到顶部
 // @author       https://github.com/samoyi/MyUserScript
-// @match        *://*/*
+// @match        https://mp.weixin.qq.com/*
+// @match        http://mp.weixin.qq.com/*
 // @grant        none
 // ==/UserScript==
 
