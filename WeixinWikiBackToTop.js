@@ -2,23 +2,20 @@
 // @name         WeixinWikiBackToTop
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  微信公众平台开发文档没有回到顶部
+// @description  微信公众平台开发文档回到顶部按钮
 // @author       https://github.com/samoyi/MyUserScript
 // @match        https://mp.weixin.qq.com/*
 // @match        http://mp.weixin.qq.com/*
 // @grant        none
 // ==/UserScript==
 
-(function() {
-    'use strict';
+ {
 
-
+    // Your code here...
     const WINDOW_HEIGHT = window.innerHeight;
 
 
-
     // 回到顶部按钮
-    (function()
      {
         let nTooLong = WINDOW_HEIGHT * 3,
             oBody = document.body;
@@ -52,5 +49,5 @@
                 });
             }
         }, 1000);
-    })();
-})();
+    }
+}
