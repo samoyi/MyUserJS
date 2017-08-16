@@ -2,7 +2,7 @@
 // @name         Hujiang_dict
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  沪江小D日本词典 只适用于日文词典
+// @description  沪江小D日语词典 只适用于日语词典
 // @author       You
 // @match        https://dict.hjenglish.com/*
 // @grant        none
